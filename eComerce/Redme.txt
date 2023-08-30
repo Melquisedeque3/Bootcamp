@@ -1,0 +1,66 @@
+*  Tive problemas com a instalação do MySql no meu notbook, (uso um Hakintosh Mojave), por isso
+busquei alternativas para fazer o desafio.
+    - Para criar o esquema, utilizei o Microsoft Excel.
+    - Para criar o scrip SQL utilizei o site: https://sqliteonline.com/
+* Separei as tabelas que serão criadas para ter ideia de como faria a criação do banco de dados.
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=- Tabelas =-=-=-=-=-=-=-=-=-=-=-=-=-=-
+—Pedido
+IdProduto INT auto_increment PRIMARY KEY
+Status_Pedido BOOL
+Descrição VARCHAR (40)
+
+-Pedido_Produto
+IdFornecedor INT 
+OutroVendedorIdOutroVendedor INT (FK)
+Quantidade FLOAT
+
+-Entrega
+IdEbtrega INT 
+Status VARCHAR (40)
+Data FATE
+
+-Cliente
+IdCliente INT 
+Nome VARCHAR (40)
+Endereco VARCHAR (40)
+Telefone VARCHAR (12)
+CPF VARCHAR (11)
+
+-Pagamento
+IdPagamento INT 
+Cartao VARCHAR (40)
+Bandeira VARCHAR (40)
+Numero VARCHAR (40)
+ClienteIdCliente INT (FK)
+Pedido_Cliente_IdPedido INT
+
+-Estoque
+IdEstoque INT
+Local VARCHAR (40)
+
+-Produto em estoque
+PrdutoIdProduto INT (FK)
+Estoque_IdEstoque INT (FK)
+Quantidade FLOAT
+
+-Fornecedor
+IdFornecedor INT 
+Endereço VARCHAR (40)
+CNPJ VARCHAR (14)
+
+-Produtos em estoque (outro fornecedor)
+PrdIdProduto INT (FK)
+Fornecedor_IdFornecedor INT (FK)
+
+-Pedido de produto
+PrdutoIdProduto INT (FK)
+OutroVendedorIdOutroVendedor INT (FK)
+Quantidade FLOAT
+
+-Produto
+IdProduto INT
+Categoria VARCHAR (40)
+Descrição VARCHAR (40)
+Valor FLOAT
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
