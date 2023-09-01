@@ -1,13 +1,11 @@
--- Essas são as instruçoes que criei no site: phpmyadmin, onde
--- efetivamente criei o projeto. 
-  -- phpMyAdmin SQL Dump
-  -- version 4.9.1
-  -- https://www.phpmyadmin.net/
-  --
-  -- Host: mysql-142725-db.mysql-142725:11543
-  -- Tempo de geração: 01-Set-2023 às 00:12
-  -- Versão do servidor: 8.0.26
-  -- versão do PHP: 7.2.34
+-- phpMyAdmin SQL Dump
+-- version 4.9.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: mysql-142725-db.mysql-142725:11543
+-- Tempo de geração: 01-Set-2023 às 02:05
+-- Versão do servidor: 8.0.26
+-- versão do PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -35,20 +33,21 @@ CREATE TABLE `Cliente` (
   `Nome` varchar(40) DEFAULT NULL,
   `Endereco` varchar(40) DEFAULT NULL,
   `Telefone` varchar(12) DEFAULT NULL,
-  `CPF` varchar(11) DEFAULT NULL
+  `CPF` varchar(11) DEFAULT NULL,
+  `CNPJ` varchar(14) DEFAULT (0)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `Cliente`
 --
 
-INSERT INTO `Cliente` (`IdCliente`, `Nome`, `Endereco`, `Telefone`, `CPF`) VALUES
-(1, 'Maria João', 'Rua A nmr 12', '79999999991', '11111111101'),
-(2, 'José Rony', 'Rua A nmr 215', '79999999992', '11111111102'),
-(3, 'José Maria', 'Rua 09 nmr 15', '79999999993', '11111111103'),
-(4, 'Neuton Roky', 'Rua y nmr 21', '79999999994', '11111111104'),
-(5, 'Severino Nau', 'Rua nova nmr 25', '79999999995', '11111111105'),
-(6, 'Vandy Norys', 'Rua 12 nmr 51', '79999999996', '11111111106');
+INSERT INTO `Cliente` (`IdCliente`, `Nome`, `Endereco`, `Telefone`, `CPF`, `CNPJ`) VALUES
+(1, 'Maria João', 'Rua A nmr 12', '79999999991', '11111111101', '0'),
+(2, 'José Rony', 'Rua A nmr 215', '79999999992', '11111111102', '0'),
+(3, 'José Maria', 'Rua 09 nmr 15', '79999999993', '11111111103', '0'),
+(4, 'Neuton Roky', 'Rua y nmr 21', '79999999994', '11111111104', '0'),
+(5, 'Severino Nau', 'Rua nova nmr 25', '79999999995', '11111111105', '0'),
+(6, 'Vandy Norys', 'Rua 12 nmr 51', '79999999996', '11111111106', '0');
 
 -- --------------------------------------------------------
 
@@ -59,7 +58,8 @@ INSERT INTO `Cliente` (`IdCliente`, `Nome`, `Endereco`, `Telefone`, `CPF`) VALUE
 CREATE TABLE `Entrega` (
   `IdEntrega` int NOT NULL,
   `Status` varchar(40) DEFAULT NULL,
-  `Data` date DEFAULT NULL
+  `Data` date DEFAULT NULL,
+  `Codigo_Rastreio` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -108,8 +108,21 @@ CREATE TABLE `Pagamento` (
   `Bandeira` varchar(40) DEFAULT NULL,
   `Numero` varchar(40) DEFAULT NULL,
   `Cliente_IdCliente` int DEFAULT NULL,
-  `Pedido_Cliente_IdPedido` int DEFAULT NULL
+  `Pedido_Cliente_IdPedido` int DEFAULT NULL,
+  `boleto` varchar(40) DEFAULT NULL,
+  `PIX` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Extraindo dados da tabela `Pagamento`
+--
+
+INSERT INTO `Pagamento` (`IdPagamento`, `Cartao`, `Bandeira`, `Numero`, `Cliente_IdCliente`, `Pedido_Cliente_IdPedido`, `boleto`, `PIX`) VALUES
+(1, 'Nu', 'Master', '4550', 2, 1, NULL, NULL),
+(2, 'Nu', 'Visa', '50', 3, 2, NULL, NULL),
+(3, 'BB', 'Master', '133', 1, 1, NULL, NULL),
+(4, 'Cx', 'Visa', '02', 5, 4, NULL, NULL),
+(5, 'Std', 'Master', '896', 3, 3, NULL, NULL);
 
 -- --------------------------------------------------------
 
