@@ -64,3 +64,17 @@ Categoria VARCHAR (40)
 Descrição VARCHAR (40)
 Valor FLOAT
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+* Acrecentei alguns valores em algumas tabelas e testei recuperando informações 
+com consultas destintas.
+
+* Seguindo os OBJETIVOS do projeto, acrecentei as formas de pagamento "PIX" e 
+"Boleto" na tabela Pagamento, Acrecentei a coluna "Código de Rastreio" na tabela 
+Pedido. Coloquei a opçao de CNPJ na tabela Cliente COM VARCHAR 14 (PADRÃO DE CNPJ) e Full (0).
+Acredito que a escolha se CNPJ se CPF seja feita na aplicação (sei fazer no Microsoft EXCEl) 
+visto que diretamente no Banco não consegi fazer essa funcionalidade.
+
+* Por fim acredito ter contemplado o que foi sugerido. Esse desafio me trouxe um conhecimento
+gigante em curto tempo, mesmo tendo dificuldades em algumas implementações. 
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
